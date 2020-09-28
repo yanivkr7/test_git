@@ -1,0 +1,241 @@
+/* Globals */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Titillium+Web:wght@400;700&display=swap');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+:root {
+	--light-purple: #ccc7d3;
+	--dark-purple: #5a4d70;
+	--dark-gray: #111;
+	font-size: 10px;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Header */
+.header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 2rem;
+	z-index: 1;
+	backdrop-filter: blur(0.5rem);
+}
+
+.header a {
+	text-decoration: none;
+	color: var(--dark-gray);
+	font-size: 3rem;
+}
+
+.menu-items {
+	list-style: none;
+	display: flex;
+	align-items: center;
+}
+
+.menu-items li a {
+	font-size: 2rem;
+	padding: 0.5rem 1rem;
+	transition: all 0.3s ease-in-out;
+}
+
+.menu-items li a:hover {
+	background-color: var(--light-purple);
+}
+
+/* Nav menu button */
+
+.menu-btn {
+	position: relative;
+	display: none;
+	justify-content: center;
+	align-items: center;
+	width: 1.5rem;
+	height: 1.5rem;
+	cursor: pointer;
+	z-index: 1;
+}
+
+.menu-btn__lines,
+.menu-btn__lines::before,
+.menu-btn__lines::after {
+	width: 1.5rem;
+	height: 0.1rem;
+	background-color: var(--dark-gray);
+	transition: all 0.5s ease-in-out;
+}
+
+.menu-btn__lines::before,
+.menu-btn__lines::after {
+	content: "";
+	position: absolute;
+}
+.menu-btn__lines::before {
+	transform: translateY(-0.5rem);
+}
+.menu-btn__lines::after {
+	transform: translateY(0.5rem);
+}
+
+/* Animation */
+.menu-btn.open .menu-btn__lines {
+	transform: translateX(2rem);
+	background-color: transparent;
+}
+
+.menu-btn.open .menu-btn__lines::before {
+	transform: rotate(45deg) translate(-1.5rem, 1.5rem);
+	background-color: #fff;
+}
+
+.menu-btn.open .menu-btn__lines::after {
+	transform: rotate(-45deg) translate(-1.5rem, -1.5rem);
+	background-color: #fff;
+}
+
+/* Sections */
+
+.section {
+	position: relative;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.section h1 {
+	font-family: "Titillium Web", serif;
+	font-size: clamp(6rem, 8vw, 20rem);
+	font-weight: 700;
+	line-height: 3vw;
+	color: var(--light-purple);
+	text-transform: uppercase;
+}
+
+.section h2 {
+	font-size: clamp(1.8rem, 2.5vw, 6rem);
+	color: var(--dark-purple);
+	padding-left: 3rem;
+	text-transform: uppercase;
+}
+
+.section p {
+	color: var(--dark-purple);
+	padding-right: 1rem;
+}
+
+/* Hero Section */
+.hero-section {
+	background-color: #dfdbe5;
+}
+
+.hero-col {
+	padding: clamp(1rem, 8vw, 5rem);
+	max-width: 50%;
+}
+
+.hero-section img {
+	width: clamp(25rem, 30vw, 50rem);
+	transform: scaleX(-1);
+}
+/* Another Section */
+.another-col {
+	width: clamp(30rem, 50vw, 60rem);
+}
+
+.custom-shape-divider-bottom-1601159334 {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	overflow: hidden;
+	line-height: 0;
+}
+
+.custom-shape-divider-bottom-1601159334 svg {
+	position: relative;
+	display: block;
+	width: calc(100% + 0.13rem);
+	height: 15rem;
+}
+
+.custom-shape-divider-bottom-1601159334 .shape-fill {
+	fill: #ffffff;
+}
+
+/** For tablet devices **/
+@media (max-width: 1023px) {
+	.custom-shape-divider-bottom-1601159334 svg {
+		width: calc(166% + 1.3px);
+		height: 15rem;
+	}
+
+	.hero-col {
+		max-width: 100%;
+		width: clamp(30rem, 50vw, 60rem);
+		padding: 0;
+	}
+	.hero-image {
+		display: none;
+	}
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+	.custom-shape-divider-bottom-1601159334 svg {
+		width: calc(134% + 0.13rem);
+		height: 15rem;
+	}
+
+	.header a {
+		font-size: 2rem;
+	}
+
+	.menu-items {
+		flex-direction: column;
+		justify-content: space-around;
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 100vh;
+		transform: translateX(100vw);
+		background-color: var(--dark-purple);
+		transition: transform .3s ease-in-out;
+	}
+
+	.menu-items li {
+		width: 100vw;
+		height: 100%;
+	}
+
+	.menu-items li a {
+		display: flex;
+		font-size: 5vh;
+		color: #fff;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+
+	.menu-items li a:hover {
+		color: var(--dark-purple);
+	}
+	.menu-items.open {
+		transform: translateX(0);
+	}
+
+	.menu-btn {
+		display: flex;
+	}
+}
